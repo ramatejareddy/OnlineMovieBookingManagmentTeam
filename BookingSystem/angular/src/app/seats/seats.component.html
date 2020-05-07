@@ -1,0 +1,92 @@
+
+
+
+<div style="background-color: linen;">
+  <nav class="crumbs">
+    <ol>
+        <li class="crumb"><a (click)="back()" routerLink="/">Home</a></li>
+        <li class="crumb"><a (click)="back()" routerLink="/movie">Movie</a></li>
+        <li class="crumb"><a  (click)="back()" routerLink="/show">Show</a></li>
+        <li class="crumb">Book Seats</li>
+
+    </ol>
+</nav>
+</div>
+<div>
+  <table class="col-md-10 mx-auto table table-striped table-hover table-bordered mt-4" >
+    <tr>
+      <th style="text-align: center;background-color:lavenderblush;font-size: large;"><h1>Book Seats</h1></th>
+    </tr>
+  </table>
+
+<section  *ngIf='!flag' style="padding-left: 5%;">
+  <div class="alert alert-danger" *ngIf="errMsg !=undefined">{{errMsg}}</div>
+  <form #frm="ngForm" (ngSubmit)="blockSeats()">
+    <div >
+      <label >No Of Tickets:</label>
+    <div><input type="number" name="txtcost" [(ngModel)]="fare.noOfSeats"  class="form-control" placeholder="Enter the no of tickets you want to boook"
+       #noOfTickets="ngModel"  value ="1" step="10" min="0" max="10" pattern="^[0-9]+$" ng-pattern-restrict required  ></div>
+    <div  class="alert alert-danger " *ngIf="noOfTickets.invalid && (noOfTickets.touched || noOfTickets.dirty)">No of Tickets  is
+      required.</div>      
+      
+    </div>    
+    
+    <div ><button [disabled]="!frm.valid" style="background-color: sandybrown;"  class="button">Book Tickets</button></div><br>
+  </form>
+  
+</section>
+
+
+<div style="background-image: image();">
+  <br>
+  <div *ngIf='flag' style="background-color: antiquewhite;">
+    <div class="alert alert-danger" *ngIf="errMsg !=undefined">{{errMsg}}</div>
+    <div style="text-align: center;font-size: medium;">You have successfully blocked   {{fare.noOfSeats}}  tickets <br>To Proceed further click on "Proceed To Payment" </div><br>
+    
+    <div class="text-center"><button class="btn btn-primary" (click)="proceedToPayment()">Proceed TO Payment </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-warning" (click)="unblockSeats()">Back To Book Tickets</button></div>
+    </div><br>
+<table class="col-md-10 mx-auto table table-striped table-hover table-bordered mt-4" *ngIf="!editFlag">
+  <tr>
+    <th style="text-align: center;background-color: aquamarine;font-size: large;">Seats Matrix</th>
+  </tr>
+</table>
+<br><br><br>
+<div style="padding-left: 2%;background-color: lightblue">
+<button class="inner" *ngFor="let seat of seats;let i = index" style='margin-right:2px;margin-left:2px;margin-top: 1px;background-color: salmon;width: 3cm;'>
+ <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{seat.seats}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+</button>
+</div>
+
+<p></p>
+<p></p>
+<p style="text-align: center;font-size: medium;text-decoration-color: rgb(40, 141, 119);">AvailableSeats:{{availableSeats}}</p>
+<div style="background-color: rgb(220, 245, 245);text-transform: capitalize; font-size: small;"><br><span style="padding-right: 5em"><strong>
+  note:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <strong style="font-size: medium;">"*"</strong> - The seat is  available</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="padding-right: 5em"><strong>"%"</strong>- The seat is blocked</span>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <strong>"@"</strong> - the seat is booked</div>
+  <p></p><br><br>
+</div>
+
+
+
+
+
+
+ 
+
+
+
+ 
+ 
+
+
+  
+
+  
+
+
+

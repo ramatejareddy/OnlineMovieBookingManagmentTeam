@@ -1,0 +1,67 @@
+
+<div style="background-color: linen;">
+  <nav class="crumbs">
+    <ol>
+        <li class="crumb"><a (click)="toBack()" routerLink="/">Home</a></li>
+        <li class="crumb"><a (click)="toBack()" routerLink="/movie">Movie</a></li>
+        <li class="crumb"><a (click)="toBack()" routerLink="/show">Show</a></li>
+        <li class="crumb"><a  (click)="toBack()" routerLink="/seats">Book Seats</a></li>
+        <li class="crumb">Booking</li>
+
+    </ol>
+</nav>
+</div>
+<table style="border:0px solid black;margin-left:auto;margin-right:auto;width: 600px;background-color: beige;">
+  <tr >
+    <td><div class="body" style="word-wrap: break-word;"><p><img src="assets/movie.gif" style="float: left;width:170px;height:170px;"> Name:       <strong>{{movie.movieName}}</strong><br>
+      Language  :   <strong>{{movie.language}}</strong><br>
+      Director  :   <strong>{{movie.director}}</strong><br>
+      Genre  :   <strong>{{movie.genre}}</strong>
+      
+    </p></div> 
+  </td>
+  </tr>
+</table>
+<table style="border:0px solid black;margin-left:auto;margin-right:auto;width: 600px;background-color: beige;">
+  <tr>
+    <th style="text-align: center;"><h2 style="color: darkseagreen;">Booking Details </h2></th>
+  </tr>
+  <tr>
+    
+
+  </tr>
+  <tr>
+    <td style="text-align: center;">
+      <h3>No of Tickets Booked :<strong>{{fare.noOfSeats}}</strong></h3>
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">
+     <h3> Seats Booked  :<p class="inner" *ngFor="let seat of seats"><strong>{{seat.seatNo}}&nbsp;</strong></p></h3>
+    </td>
+  </tr>
+
+  <tr>
+    <td style="text-align: center;">
+      <h3>Cost of each ticket  :<strong>{{seatCost}}</strong></h3>
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">
+      <h3>Total Fare     :<strong>{{fare.totalFare}}</strong></h3>
+    </td>
+  </tr>
+  <tr>
+    <td>-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">
+    <h3>Confirm Booking</h3></td>
+  </tr>
+  <tr>
+    <td style="text-align: center;"><button class="btn btn-success" style="font-size: 12px;border-radius: 12px;width: 2cm;height: 1.5cm;" (click)="generateTickets()">PAY</button>&nbsp;
+      <button class="btn btn-danger" style="font-size: 12px;border-radius: 12px;width: 2cm;height: 1.5cm;" (click)="unblockSeats()">cancel</button></td>
+  </tr>
+  
+</table>
+
