@@ -1,0 +1,54 @@
+<div class="row1" *ngIf="successFlag">
+  <div class="text-light" style="background-color: #555;">
+    <h3 class="text-light" style="padding: 5px 0 5px 15px;" align="center">
+      List of Movies
+    </h3>
+  </div>
+
+  <div>
+    <table
+      border="1"
+      class="table table-bordered table-responsive table-hover"
+      align="center"
+    >
+      <tr>
+        <th class="table-primary" style="text-align: center;">Movie Id</th>
+        <th class="table-primary" style="text-align: center;">Movie Name</th>
+        <th class="table-primary" style="text-align: center;">Hero Name</th>
+        <th class="table-primary" style="text-align: center;">Heroine Name</th>
+        <th class="table-primary" style="text-align: center;">Language</th>
+        <th class="table-primary" style="text-align: center;">Director</th>
+        <th class="table-primary" style="text-align: center;">genre</th>
+        <!-- <th class="table-primary">activeStatus</th> -->
+        <th class="table-primary" style="text-align: center;">Action</th>
+      </tr>
+      <tr *ngFor="let i of movieList" style="text-align: center;">
+        <td class="table-light">{{ i.movieId }}</td>
+        <td class="table-light">{{ i.movieName }}</td>
+        <td class="table-light">{{ i.hero }}</td>
+        <td class="table-light">{{ i.heroine }}</td>
+        <td class="table-light">{{ i.language }}</td>
+        <td class="table-light">{{ i.director }}</td>
+        <td class="table-light">{{ i.genre }}</td>
+        <!-- <td class="table-light">{{ i.activeStatus }}</td> -->
+        <td class="table-danger">
+          <a class="btn btn-danger text-white" (click)="deleteMovie(i.movieId)">
+            <span class="glyphicon glyphicon-trash"></span> Delete</a
+          >
+        </td>
+      </tr>
+    </table>
+    <div *ngIf="deleteSuccessFlag">
+      <h3>Movie Successfully deleted</h3>
+    </div>
+  </div>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<div *ngIf="errorFlag" class="text-center">
+  <h4 style="color: green;" clss="text-center">{{ message }}</h4>
+</div>
+
+<div>
+  <router-outlet></router-outlet>
+</div>

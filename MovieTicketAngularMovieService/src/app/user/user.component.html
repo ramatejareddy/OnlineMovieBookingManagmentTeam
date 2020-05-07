@@ -1,0 +1,15 @@
+<!-- <div class="row"></div> -->
+<!-- <div class="sidebar" style="background-image: url(assets/images/bg11.jpg);"> -->
+<div class="sidebar" style="background-color: rgba(132, 154, 201, 0.562);">
+  <!-- <b style="font-size: large;">Welcome {{ userName }}</b>-->
+  <a routerLink="searchMovie"> &nbsp;Search Movie</a>
+  <a routerLink="activeMovies"> &nbsp; Movies</a>
+  <a routerLink="inactiveMovies"> &nbsp;Missed Movies</a>
+  <a routerLink="/login">&nbsp; Logout</a>
+  <!-- &nbsp;&nbsp;&nbsp;&nbsp; <h3><input type="button" value="Logout" (click)="logout()"></h3> -->
+</div>
+<div class="row">
+  <div class="row" style="margin: 0px 0 0 300px;">
+    <router-outlet></router-outlet>
+  </div>
+</div>

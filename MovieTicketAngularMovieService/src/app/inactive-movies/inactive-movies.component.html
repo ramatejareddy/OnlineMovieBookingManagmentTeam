@@ -1,0 +1,47 @@
+<div class="row1" *ngIf="successFlag">
+  <div class="text-light" style="background-color: #555;">
+    <h3 class="text-light" style="padding: 5px 0 5px 15px;" align="center">
+      List of Movies you may be Missed
+    </h3>
+  </div>
+
+  <div>
+    <table
+      border="1"
+      class="table table-bordered table-responsive table-hover"
+      align="center"
+    >
+      <tr style="text-align: center;">
+        <!-- <th class="table-primary">movieId</th> -->
+        <th class="table-primary" style="text-align: center;">Movie Name</th>
+        <th class="table-primary" style="text-align: center;">Hero Name</th>
+        <th class="table-primary" style="text-align: center;">Heroine Name</th>
+        <th class="table-primary" style="text-align: center;">Language</th>
+        <th class="table-primary" style="text-align: center;">Director Name</th>
+        <th class="table-primary" style="text-align: center;">Genre</th>
+
+        <!-- <th class="table-primary">activeStatus</th> -->
+      </tr>
+      <tr *ngFor="let i of this.movieList" style="text-align: center;">
+        <!-- <td class="table-light">{{ i.movieId }}</td> -->
+        <td class="table-light">{{ i.movieName }}</td>
+        <td class="table-light">{{ i.hero }}</td>
+        <td class="table-light">{{ i.heroine }}</td>
+        <td class="table-light">{{ i.language }}</td>
+        <td class="table-light">{{ i.director }}</td>
+        <td class="table-light">{{ i.genre }}</td>
+        <!-- <td class="table-light">{{ i.activeStatus }}</td> -->
+      </tr>
+    </table>
+    <!-- <input type="button" value="Back" (click)="back()"> -->
+  </div>
+</div>
+
+&nbsp;&nbsp;&nbsp;
+<div *ngIf="errorFlag">
+  <h3 class="text-danger">{{ message }}</h3>
+</div>
+
+<div>
+  <router-outlet></router-outlet>
+</div>

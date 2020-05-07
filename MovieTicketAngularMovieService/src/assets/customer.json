@@ -1,0 +1,28 @@
+{
+  "customer": [
+    {
+      "id": 1,
+      "customerId": 1,
+      "customerName": "krishna",
+      "password": "krishna",
+      "dateOfBirth": "1997-06-25",
+      "customerContact": "8837636225"
+    },
+    {
+      "id": 2,
+      "customerId": 2,
+      "customerName": "hemanth",
+      "password": "hemanth",
+      "dateOfBirth": "1997-06-25",
+      "customerContact": "9100052512"
+    },
+    {
+      "id": 3,
+      "customerId": 3,
+      "customerName": "ramateja",
+      "password": "ramateja",
+      "dateOfBirth": "1997-06-25",
+      "customerContact": "7636225883"
+    }
+  ]
+}

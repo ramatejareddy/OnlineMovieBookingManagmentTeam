@@ -1,0 +1,98 @@
+{
+  "customer": [
+    {
+      "id": 1,
+      "customerId": 1,
+      "customerName": "krishna",
+      "password": "krishna",
+      "dateOfBirth": "1997-06-25",
+      "customerContact": "8837636225"
+    },
+    {
+      "id": 2,
+      "customerId": 2,
+      "customerName": "hemanth",
+      "password": "hemanth",
+      "dateOfBirth": "1997-06-25",
+      "customerContact": "9100052512"
+    },
+    {
+      "id": 3,
+      "customerId": 3,
+      "customerName": "ramateja",
+      "password": "ramateja",
+      "dateOfBirth": "1997-06-25",
+      "customerContact": "7636225883"
+    }
+  ],
+  "movie": [
+    {
+      "id": 1,
+      "movieId": 1001,
+      "movieName": "bahubali",
+      "language": "telugu",
+      "director": "ssr",
+      "genre": "action",
+      "activestatus": true
+    },
+    {
+      "id": 2,
+      "movieId": 1002,
+      "movieName": "war",
+      "language": "hindi",
+      "director": "karan",
+      "genre": "action",
+      "activestatus": true
+    },
+    {
+      "id": 3,
+      "movieId": 1003,
+      "movieName": "kgf",
+      "language": "kannada",
+      "director": "prashanth",
+      "genre": "action",
+      "activestatus": true
+    },
+    {
+      "id": 4,
+      "movieId": 1004,
+      "movieName": "wfl",
+      "language": "telugu",
+      "director": "vd",
+      "genre": "Romantic",
+      "activestatus": true
+    },
+    {
+      "id": 5,
+      "movieId": 1005,
+      "movieName": "hit",
+      "language": "telugu",
+      "director": "sudheer",
+      "genre": "thriller",
+      "activestatus": true
+    }
+  ],
+  "login": [
+    {
+      "id": 1,
+      "userName": "krishna",
+      "loginType": "admin",
+      "password": "krishna",
+      "customerId": 1
+    },
+    {
+      "id": 2,
+      "userName": "hemanth",
+      "loginType": "customer",
+      "password": "hemanth",
+      "empId": 2
+    },
+    {
+      "id": 3,
+      "userName": "ramateja",
+      "loginType": "customer",
+      "password": "ramateja",
+      "empId": 3
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "movie": [
+    {
+      "id": 1,
+      "movieId": 1001,
+      "movieName": "bahubali",
+      "language": "telugu",
+      "director": "ssr",
+      "genre": "action",
+      "activestatus": true
+    },
+    {
+      "id": 2,
+      "movieId": 1002,
+      "movieName": "war",
+      "language": "hindi",
+      "director": "karan",
+      "genre": "action",
+      "activestatus": true
+    },
+    {
+      "id": 3,
+      "movieId": 1003,
+      "movieName": "kgf",
+      "language": "kannada",
+      "director": "prashanth",
+      "genre": "action",
+      "activestatus": true
+    },
+    {
+      "id": 4,
+      "movieId": 1004,
+      "movieName": "wfl",
+      "language": "telugu",
+      "director": "vd",
+      "genre": "Romantic",
+      "activestatus": true
+    },
+    {
+      "id": 5,
+      "movieId": 1005,
+      "movieName": "hit",
+      "language": "telugu",
+      "director": "sudheer",
+      "genre": "thriller",
+      "activestatus": true
+    }
+  ]
+}

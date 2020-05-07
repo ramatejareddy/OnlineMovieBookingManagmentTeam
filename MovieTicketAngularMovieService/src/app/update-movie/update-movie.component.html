@@ -1,0 +1,283 @@
+<div class="col-lg-12 col md-12">
+  <div class="text-light" style="background-color: #555;">
+    <h3 class="text-light" style="padding: 5px 0 5px 15px;" align="center">
+      Update Movie Details
+    </h3>
+  </div>
+  <!--reactive forms-->
+  <!--designing add user form-->
+  <form [formGroup]="editForm" (ngSubmit)="updateMovie()">
+    <!-- Movie Id textbox -->
+    <div class="form-group row">
+      <label
+        for="movieId"
+        class="col-lg-4 text-info text-right font-weight-bold"
+      >
+        Movie Id:
+      </label>
+      <div class="col-lg-8">
+        <input
+          type="number"
+          class="form-control"
+          formControlName="movieId"
+          autofocus
+        />
+      </div>
+    </div>
+    <!--End of Movie Id textbox-->
+    <!-- Movie Name textbox-->
+    <div class="form-group row">
+      <label
+        for="movieName"
+        class="col-lg-4 text-info text-right font-weight-bold"
+      >
+        Movie Name:
+      </label>
+      <div class="col-lg-8">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Movie Name"
+          formControlName="movieName"
+        />
+
+        <div *ngIf="submitted && editForm.controls.movieName.errors">
+          <div
+            class="text-danger"
+            *ngIf="editForm.controls.movieName.errors.required"
+          >
+            First Name is required..!
+          </div>
+          <div
+            class="text-danger"
+            *ngIf="editForm.controls.movieName.errors.pattern"
+          >
+            Movie Name must begin with Capital letter and length should be 15..!
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END OF Movie NAME-->
+    <!--Hero NAME TEXT BOX-->
+    <div class="form-group row">
+      <label for="hero" class="col-lg-4 text-info text-right font-weight-bold">
+        Hero Name:
+      </label>
+      <div class="col-lg-8">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Hero Name"
+          formControlName="hero"
+        />
+
+        <div *ngIf="submitted && editForm.controls.hero.errors">
+          <div
+            class="text-danger"
+            *ngIf="editForm.controls.hero.errors.required"
+          >
+            Hero Name is required..!
+          </div>
+          <div
+            class="text-danger"
+            *ngIf="editForm.controls.hero.errors.pattern"
+          >
+            Hero Name must begin with Capital letter and length should be 15..!
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END OF HERO NAME-->
+    <!--Heroine NAME TEXT BOX-->
+    <div class="form-group row">
+      <label
+        for="heroine"
+        class="col-lg-4 text-info text-right font-weight-bold"
+      >
+        Heroine Name:
+      </label>
+      <div class="col-lg-8">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Heroine Name"
+          formControlName="heroine"
+        />
+
+        <div *ngIf="submitted && editForm.controls.heroine.errors">
+          <div
+            class="text-danger"
+            *ngIf="editForm.controls.heroine.errors.required"
+          >
+            Heroine Name is required..!
+          </div>
+          <div
+            class="text-danger"
+            *ngIf="editForm.controls.heroine.errors.pattern"
+          >
+            Heroine Name must begin with Capital letter and length should be
+            15..!
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END OF HEROINE NAME-->
+    <!--Language text box-->
+    <div class="form-group row">
+      <label
+        for="language"
+        class="col-lg-4 text-info text-right font-weight-bold"
+      >
+        Language :
+      </label>
+      <div class="col-lg-8">
+        <select
+          class="form-control"
+          (change)="changeLanguage($event)"
+          formControlName="language"
+        >
+          <option value="">Choose Language</option>
+          <option Value="Telugu"> Telugu </option>
+          <option Value="Hindi"> Hindi </option>
+          <option Value="English"> English </option>
+          <option Value="kannada"> Kannada </option>
+          <option Value="Tamil"> Tamil </option>
+          <option Value="Malayalam"> Malayalam </option>
+        </select>
+
+        <div *ngIf="submitted && editForm.controls.language.errors">
+          <div
+            class="text-danger"
+            *ngIf="editForm.controls.language.errors.required"
+          >
+            Language is required..!
+          </div>
+          <div
+            class="text-danger"
+            *ngIf="editForm.controls.language.errors.pattern"
+          >
+            Language Name must begin with Capital letter and length should be
+            15..!
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END OF Language-->
+    <!--Director text box-->
+    <div class="form-group row">
+      <label
+        for="director"
+        class="col-lg-4 text-info text-right font-weight-bold"
+      >
+        Director Name :
+      </label>
+      <div class="col-lg-8">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Director Name"
+          formControlName="director"
+        />
+
+        <div *ngIf="submitted && editForm.controls.director.errors">
+          <div
+            class="text-danger"
+            *ngIf="editForm.controls.director.errors.required"
+          >
+            Director Name is required..!
+          </div>
+          <div
+            class="text-danger"
+            *ngIf="editForm.controls.director.errors.pattern"
+          >
+            Director Name must begin with Capital letter and length should be
+            15..!
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END OF Director-->
+    <!--Genre text box-->
+    <div class="form-group row">
+      <label
+        for="language"
+        class="col-lg-4 text-info text-right font-weight-bold"
+      >
+        Genre :
+      </label>
+      <div class="col-lg-8">
+        <select
+          formControlName="genre"
+          (change)="changeGenre($event)"
+          class="form-control input-lg"
+        >
+          <option value="">Choose Genre</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Thriller">Thriller</option>
+          <option value="Sci-Fi">Sci-Fi</option>
+          <option value="Action">Action</option>
+          <option value="Periodic">Periodic</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Drama">Drama</option>
+          <option value="Crime">Crime</option>
+          <option value="Animation">Animation</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Horror">Horror</option>
+          <option value="Adventure">Adventure</option>
+        </select>
+
+        <div *ngIf="submitted && editForm.controls.genre.errors">
+          <div
+            class="text-danger"
+            *ngIf="editForm.controls.genre.errors.required"
+          >
+            Genre Name is required..!
+          </div>
+          <div
+            class="text-danger"
+            *ngIf="editForm.controls.genre.errors.pattern"
+          >
+            Genre Name must begin with Capital letter !
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END OF Genre-->
+    <!--Active Status checkbox-->
+    <div class="form-group row radio">
+      <label
+        for="activeStatus"
+        class="col-lg-4 text-info text-right font-weight-bold"
+      >
+        Active Status :
+      </label>
+      <input
+        type="checkbox"
+        formControlName="activeStatus"
+        placeholder="activeStatus"
+        value="true"
+        name="activeStatus"
+        class="form-control"
+        id="activeStatus"
+      />
+    </div>
+    <!-- END OF Active Status-->
+
+    <div class="text-right">
+      <button class="btn btn-outline-success">
+        Update</button
+      >&nbsp; &nbsp;
+      <a class="btn btn-outline-danger" routerLink="/admin/viewMovies"
+        >View Movies</a
+      >
+      &nbsp; &nbsp;
+    </div>
+  </form>
+</div>
+<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div *ngIf="successFlag" class="text-center">
+  <h4 style="color: green;">
+    movie with Id {{ currentId }} updated Successfully
+  </h4>
+</div>

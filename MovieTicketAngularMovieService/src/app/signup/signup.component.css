@@ -1,0 +1,29 @@
+.d {
+  position: fixed;
+  overflow: visible;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  left: 0px;
+  height: 1100px;
+  margin-top: -30px;
+}
+
+.chk {
+  margin-left: 35%;
+}
+.log {
+  height: 800px;
+  border: 2px solid white;
+  padding-top: 65px;
+  padding-right: 260px;
+  margin-top: 10px;
+  margin-left: 350px;
+  box-shadow: -5px 2px 62px 8px rgba(0, 0, 0, 0.5);
+}
+.lgn {
+  font-size: smaller;
+}
+label {
+  color: #555;
+}

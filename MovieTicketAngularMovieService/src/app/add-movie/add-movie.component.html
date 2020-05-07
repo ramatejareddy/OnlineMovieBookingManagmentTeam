@@ -1,0 +1,194 @@
+<div class="col-lg-12 col md-12">
+  <div class="text-light" style="background-color: #555;">
+    <h3 class="text-light" style="padding: 5px 0 5px 15px;" align="center">
+      Add Movie
+    </h3>
+  </div>
+  <form class="log" [formGroup]="addForm" (ngSubmit)="addMovie()">
+    <div class="form-group row">
+      <label for="movieName" class="col-lg-4 text-right font-weight-bold">
+        Movie Name:
+      </label>
+      <div class="col-lg-8">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Movie Name"
+          formControlName="movieName"
+          autofocus
+        />
+
+        <div *ngIf="submitted && addForm.controls.movieName.errors">
+          <div
+            class="text-danger"
+            *ngIf="addForm.controls.movieName.errors.required"
+          >
+            Movie Name is required..!
+          </div>
+          <div
+            class="text-danger"
+            *ngIf="addForm.controls.movieName.errors.pattern"
+          >
+            Movie Name should start with Capital and can contain only
+            alphabets,digits,space,':','-' and ',' and length can't exceed 20.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="hero" class="col-lg-4 text-right font-weight-bold">
+        Hero Name
+      </label>
+      <div class="col-lg-8">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Hero Name"
+          formControlName="hero"
+          autofocus
+        />
+
+        <div *ngIf="submitted && addForm.controls.hero.errors">
+          <div
+            class="text-danger"
+            *ngIf="addForm.controls.hero.errors.required"
+          >
+            Hero Name is required
+          </div>
+          <div
+            class="text-danger"
+            *ngIf="addForm.controls.director.errors.pattern"
+          >
+            Hero Name should start with Capital and can contain only
+            alphabets,digits,space,':','-' and ',' and length can't exceed 20.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="heroine" class="col-lg-4 text-right font-weight-bold">
+        Heroine
+      </label>
+      <div class="col-lg-8">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Heroine Name"
+          formControlName="heroine"
+          autofocus
+        />
+
+        <div *ngIf="submitted && addForm.controls.heroine.errors">
+          <div
+            class="text-danger"
+            *ngIf="addForm.controls.heroine.errors.required"
+          >
+            Heroine Name is required
+          </div>
+          <div
+            class="text-danger"
+            *ngIf="addForm.controls.director.errors.pattern"
+          >
+            Heroine Name should start with Capital and can contain only
+            alphabets,digits,space,':','-' and ',' and length can't exceed 20.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="director" class="col-lg-4 text-right font-weight-bold">
+        Director
+      </label>
+      <div class="col-lg-8">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Director Name"
+          formControlName="director"
+          autofocus
+        />
+
+        <div *ngIf="submitted && addForm.controls.director.errors">
+          <div
+            class="text-danger"
+            *ngIf="addForm.controls.director.errors.required"
+          >
+            Director Name is required
+          </div>
+          <div
+            class="text-danger"
+            *ngIf="addForm.controls.director.errors.pattern"
+          >
+            Director Name should start with Capital and can contain only
+            alphabets,digits,space,':','-' and ',' and length can't exceed 20.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="language" class="col-lg-4 text-right font-weight-bold">
+        Language
+      </label>
+      <div class="col-lg-8">
+        <select class="form-control" formControlName="language">
+          <option value="">Choose Language</option>
+          <option Value="Telugu"> Telugu </option>
+          <option Value="Hindi"> Hindi </option>
+          <option Value="English"> English </option>
+          <option Value="kannada"> Kannada </option>
+          <option Value="Tamil"> Tamil </option>
+          <option Value="Malayalam"> Malayalam </option>
+        </select>
+
+        <div *ngIf="submitted && addForm.controls.language.errors">
+          <div
+            class="text-danger"
+            *ngIf="addForm.controls.language.errors.required"
+          >
+            language is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="language" class="col-lg-4 text-right font-weight-bold">
+        Genre
+      </label>
+      <div class="col-lg-8">
+        <select formControlName="genre" class="form-control input-lg">
+          <option value="">Choose Genre</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Thriller">Thriller</option>
+          <option value="Sci-Fi">Sci-Fi</option>
+          <option value="Action">Action</option>
+          <option value="Periodic">Periodic</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Drama">Drama</option>
+          <option value="Crime">Crime</option>
+          <option value="Animation">Animation</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Horror">Horror</option>
+          <option value="Adventure">Adventure</option>
+        </select>
+
+        <div *ngIf="submitted && addForm.controls.genre.errors">
+          <div
+            class="text-danger"
+            *ngIf="addForm.controls.genre.errors.required"
+          >
+            Genre is required
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row" style="margin-left: 120px;">
+      <button class="btn btn-success">Submit</button>&nbsp;&nbsp;&nbsp;
+      <button class="btn btn-danger" type="reset">Cancel</button>
+    </div>
+  </form>
+</div>
+<div *ngIf="success" class="text-center">
+  <h2 style="color: green;">Movie added successfully</h2>
+</div>

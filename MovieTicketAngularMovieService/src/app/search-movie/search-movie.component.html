@@ -1,0 +1,64 @@
+<div class="row1">
+  <div class="text-light" style="background-color: #555;">
+    <h3 class="text-info" style="padding: 5px 0 5px 12px;">
+      Searching Movie By Name
+    </h3>
+  </div>
+  <div>
+    <label style="color: rgb(255, 0, 55);"> Search Movie :</label>&nbsp;&nbsp;
+    <input
+      [(ngModel)]="name"
+      type="text"
+      placeholder="Movie Name or Hero Name or Heroine Name or Language Name to search Movie"
+      required
+      size="75"
+    />
+
+    <input type="submit" value="Search Movie" (click)="searchName()" />
+  </div>
+  <diV *ngIf="nameIsEmptyFlag">
+    <h3>Name can't be empty</h3>
+  </diV>
+  <div *ngIf="searchNameFlag">
+    <table
+      border="1"
+      class="table table-bordered table-responsive table-hover"
+      align="center"
+    >
+      <tr style="text-align: center;">
+        <!-- <th class="table-primary" style="text-align: center;">Movie Id</th> -->
+        <th class="table-primary" style="text-align: center;">Movie Name</th>
+        <th class="table-primary" style="text-align: center;">Hero Name</th>
+        <th class="table-primary" style="text-align: center;">Heroine Name</th>
+        <th class="table-primary" style="text-align: center;">Language</th>
+        <th class="table-primary" style="text-align: center;">Director Name</th>
+        <th class="table-primary" style="text-align: center;">Genre</th>
+        <!-- <th class="table-primary">activeStatus</th> -->
+      </tr>
+      <tr *ngFor="let i of this.movieList" style="text-align: center;">
+        <!-- <td class="table-light">{{ i.movieId }}</td> -->
+        <td class="table-light">{{ i.movieName }}</td>
+        <td class="table-light">{{ i.hero }}</td>
+        <td class="table-light">{{ i.heroine }}</td>
+        <td class="table-light">{{ i.language }}</td>
+        <td class="table-light">{{ i.director }}</td>
+        <td class="table-light">{{ i.genre }}</td>
+        <!-- <td class="table-light">{{ i.activeStatus }}</td> -->
+      </tr>
+      <tr>
+        <td colspan="9" align="center">
+          <input type="button" value="Home" (click)="back()" />
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div *ngIf="errorFlag">
+    <!-- <h3 class="text-danger"> Employee With name {{name}} not found</h3> -->
+    <h3 class="text-danger">{{ message }}</h3>
+    <input type="button" (click)="back1()" value="back" />
+  </div>
+</div>
+<div>
+  <router-outlet></router-outlet>
+</div>

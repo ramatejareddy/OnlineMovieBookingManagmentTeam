@@ -1,0 +1,88 @@
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-4"></div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <!-- <h1>Login</h1> -->
+          <br />
+          <form id="log1" [formGroup]="loginForm" (ngSubmit)="authenticate()">
+            <!-- <img
+              class="img rounded-circle z-depth-2"
+              data-holder-rendered="true"
+              src="assets/images/icon.png"
+            /> -->
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="userName"
+                placeholder="Enter Username"
+              />
+              <!--Predefined Structural Directives: *ngIf, *ngFor, *ngSwitchCase -->
+              <div
+                *ngIf="submitted && loginForm.controls.userName.errors"
+                class="error"
+              >
+                <div
+                  class="text-danger"
+                  *ngIf="loginForm.controls.userName.errors.required"
+                >
+                  Username is required
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                formControlName="password"
+                placeholder="Enter Password"
+              />
+              <div *ngIf="submitted && loginForm.controls.password.errors">
+                <div
+                  class="text-danger"
+                  *ngIf="loginForm.controls.password.errors.required"
+                >
+                  Password is required
+                </div>
+              </div>
+            </div>
+            &nbsp;&nbsp;&nbsp;<button
+              class="btn btn-dark btn-block"
+              type="submit"
+              [disabled]="loginForm.invalid"
+            >
+              Login
+            </button>
+            &nbsp;
+            <button
+              class="btn btn-danger btn-block"
+              type="reset"
+              routerLink="/signup"
+            >
+              SignUp
+            </button>
+            &nbsp;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />
+            <div *ngIf="errorFlag">
+              <h4 class="text-info">{{ message }}</h4>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-4"></div>
+      </div>
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  </body>
+</html>

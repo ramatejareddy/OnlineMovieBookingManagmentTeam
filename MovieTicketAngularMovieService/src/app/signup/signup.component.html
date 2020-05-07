@@ -1,0 +1,215 @@
+<br />
+<br />
+<div class="d" style="background-image: url(assets/images/bg12.jpg);">
+  <div class="col-lg-10 col md-10 col sm-10 col xs-10">
+    <h1
+      class="text-center text-danger font-weight-bold"
+      style="margin-left: 22%; margin-top: 40px;"
+    >
+      Create Account
+    </h1>
+    <br />
+    <!--reactive forms-->
+    <!--designing add user form-->
+    <form class="log" [formGroup]="addForm" (ngSubmit)="addUser()">
+      <!--- First Name textbox-->
+      <div class="form-group row">
+        <label
+          for="name"
+          class="col-lg-4 col-md-4 col-sm-4 text-right font-weight-bold"
+        >
+          Full Name:
+        </label>
+        <div class="col-lg-8 col-md-8 col-sm-8">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter Full Name (eg: Ashok Kumar)"
+            formControlName="name"
+            autofocus
+          />
+
+          <div *ngIf="submitted && addForm.controls.name.errors">
+            <div
+              class="text-danger"
+              *ngIf="addForm.controls.name.errors.required"
+            >
+              Name is required..!
+            </div>
+            <div
+              class="text-danger"
+              *ngIf="addForm.controls.name.errors.pattern"
+            >
+              Name must begin with Capital letter and length should be between 3
+              and 30 characters..!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label
+          for="dateOfBirth"
+          class="col-lg-4 col-md-4 col-sm-4 text-right font-weight-bold"
+        >
+          Date Of Birth:
+        </label>
+        <div class="col-lg-8 col-md-8 col-sm-8">
+          <input
+            type="date"
+            class="form-control"
+            placeholder="Select Some Past Date"
+            formControlName="dateOfBirth"
+          />
+
+          <div *ngIf="submitted && addForm.controls.dateOfBirth.errors">
+            <div
+              class="text-danger"
+              *ngIf="addForm.controls.dateOfBirth.errors.required"
+            >
+              Date Of Birth is required..!
+            </div>
+            <div
+              class="text-danger"
+              *ngIf="addForm.controls.dateOfBirth.errors.pattern"
+            >
+              Date Of Birth Must be a Past Date
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END OF Age-->
+      <!-- Mobile number text box-->
+      <div class="form-group row">
+        <label
+          for="contact"
+          class="col-lg-4 col-md-4 col-sm-4 text-right font-weight-bold"
+        >
+          Mobile Number:
+        </label>
+        <div class="col-lg-8 col-md-8 col-sm-8">
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Enter Your Mobile Number (eg: 9876543210)"
+            formControlName="contact"
+          />
+
+          <div *ngIf="submitted && addForm.controls.contact.errors">
+            <div
+              class="text-danger"
+              *ngIf="addForm.controls.contact.errors.required"
+            >
+              Mobile Number is required..!
+            </div>
+            <div
+              class="text-danger"
+              *ngIf="addForm.controls.contact.errors.pattern"
+            >
+              Mobile Number must be of Numeric and of 10 digits..!
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Password textbox -->
+      <div class="form-group row">
+        <label
+          for="userName"
+          class="col-lg-4 col-md-4 col-sm-4 text-right font-weight-bold"
+        >
+          Username:
+        </label>
+        <div class="col-lg-8 col-md-8 col-sm-8">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter Username (eg: ASHOKVAN)"
+            formControlName="userName"
+          />
+
+          <div *ngIf="submitted && addForm.controls.userName.errors">
+            <div
+              class="text-danger"
+              *ngIf="addForm.controls.userName.errors.required"
+            >
+              Username is required..!
+            </div>
+            <div
+              class="text-danger"
+              *ngIf="addForm.controls.userName.errors.pattern"
+            >
+              Username must be of 8 characters..!
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Password textbox -->
+      <div class="form-group row">
+        <label
+          for="password"
+          class="col-lg-4 col-md-4 col-sm-4 text-right font-weight-bold"
+        >
+          Password:
+        </label>
+        <div class="col-lg-8 col-md-8 col-sm-8">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Enter Password (*only Alphanumerics are allowed)"
+            formControlName="password"
+          />
+
+          <div *ngIf="submitted && addForm.controls.password.errors">
+            <div
+              class="text-danger"
+              *ngIf="addForm.controls.password.errors.required"
+            >
+              Password is required..!
+            </div>
+            <div
+              class="text-danger"
+              *ngIf="
+                addForm.controls.password.errors.minlength ||
+                addForm.controls.password.errors.maxlength
+              "
+            >
+              Password must be of minimum 6 characters and maximum 12
+              characters..!
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END OF Password-->
+
+      <!-- <div class="form-group row">
+        <div class="chk col-lg-12">
+          <input type="checkbox" checked disabled />I Agree to the Terms and
+          Conditions
+        </div>
+      </div> -->
+      <div class="form-group row" style="margin-left: 270px;">
+        <div
+          class="lgn col-lg-8 col-md-2 col-sm-2 text-primary font-weight-bold"
+        >
+          <p>
+            Already have an Account?
+          </p>
+        </div>
+        <a class="text-info" routerLink="/login">Login</a>
+      </div>
+      <div *ngIf="errorFlag" class="text-center">
+        <h4 style="color: rgb(182, 92, 104);">
+          {{ message }}
+        </h4>
+      </div>
+
+      <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+        <button class="btn btn-success">
+          Submit</button
+        >&nbsp; &nbsp;
+        <button class="btn btn-danger" type="reset">Cancel</button>&nbsp; &nbsp;
+        <!-- </div> -->
+      </div>
+    </form>
+  </div>
+</div>

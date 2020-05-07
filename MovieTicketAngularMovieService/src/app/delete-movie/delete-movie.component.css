@@ -1,0 +1,17 @@
+.row1 {
+  border: 2px solid white;
+  padding: 5px 5px 0px 5px;
+  height: 700px;
+  width: 1210px;
+}
+table {
+  width: 1200px;
+}
+th {
+  padding-left: 15px;
+  width: 400px;
+}
+td {
+  height: 50px;
+  width: 1200px;
+}
