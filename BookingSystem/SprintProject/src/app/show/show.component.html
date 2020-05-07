@@ -1,0 +1,55 @@
+<div style="background-color: linen;">
+  <nav class="crumbs">
+    <ol>
+        <li class="crumb"><a routerLink="/">Home</a></li>
+        <li class="crumb"><a routerLink="/movie">Movie</a></li>
+        <li class="crumb">Show</li>
+    </ol>
+</nav>
+</div>
+<form #frm="ngForm" (ngSubmit)="getShows()" style="padding-left: 45%;background-color: lightcyan;">
+  
+<label for="start"><h1>Choose date:</h1></label>
+
+<div>&nbsp;&nbsp;<input type="date" id="start" name="trip-start" style="width: 5cm;height: 0.9cm;background-color: lightblue;border-radius: 12px;" [(ngModel)]="bookingDate"
+       value="todayDate"
+       min="{{todayDate| date:'yyyy-MM-dd'}}" max="{{lastDate| date:'yyyy-MM-dd' }}"  #noOfTickets="ngModel" required/><br>
+       <div class="alert alert-danger mt-3" *ngIf="noOfTickets.invalid && (noOfTickets.touched || noOfTickets.dirty)" 
+       style="width:fit-content;height: fit-content;">&nbsp;Booking date  is
+        required.</div>
+        </div><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button [disabled]="!frm.valid" class="button " style="background-color: orange;">&nbsp;Submit</button><br>
+      <br>
+       </form>
+       <br>       
+
+<div class="container" >
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
+      <div class="heading">Shows</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 col-lg-6">
+      <div class="subheading">Theater Details</div>
+    </div>
+    <div class="col-lg-6 col-lg-6">
+      <div class="subheading">Show Details</div>
+    </div>
+  </div>
+  <div class=" row" style="text-align: center;font-size: large;" *ngIf="errMsg !=undefined" ><img src="assets/vector-cute-sorry-smiley-illustration.jpg" style="height:150px;width: 100px;float: none;"><br>{{errMsg}}</div>
+    <div class="row" *ngFor="let theater of theater " >
+    <div class="col-lg-6 col-md-6">
+      <div class="body" style="word-wrap: break-word;"><p>Theater Name:       <strong>{{theater.theaterName}}</strong><br>
+      Theater City:   <strong>{{theater.theaterCity}}</strong><br></p></div> 
+    </div>
+      <div class="col-lg-6 col-md-6">
+        <div class="body" style="word-wrap: break-word;" ><p *ngFor="let show of theater.show" style="display: inline-block;">{{show.showName}}:<a  class="btn "  (click)="displaySeats(show.showId)" style="background-color:salmon">{{show.showstartTime|date:'shortTime'}}</a>&nbsp;
+          </p>
+        </div>
+      </div>
+  </div>
+ 
+  </div>
+

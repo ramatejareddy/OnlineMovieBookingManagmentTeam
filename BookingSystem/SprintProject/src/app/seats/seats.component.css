@@ -1,0 +1,38 @@
+.inner{
+    display: inline-block;
+}
+.display{
+    display: inline-block;
+   
+    font-size: medium;
+
+}
+.button {
+    transition-duration: 0.4s;
+  }
+  
+  .button:hover {
+    background-color: darkseagreen; 
+    color: white;
+  }
+  nav {
+    border-bottom: 1px solid black;
+}
+
+.crumbs ol {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.crumb {
+    display: inline-block;
+}
+
+.crumb a::after {
+    display: inline-block;
+    color: #000;
+    content: '>';
+    font-size: 80%;
+    font-weight: bold;
+    padding: 0 3px;
+}

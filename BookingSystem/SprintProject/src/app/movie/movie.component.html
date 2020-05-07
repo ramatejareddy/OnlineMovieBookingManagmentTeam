@@ -1,0 +1,30 @@
+
+<div style="background-color: linen;">
+  <nav class="crumbs">
+    <ol>
+        <li class="crumb"><a routerLink="/">Home</a></li>
+        <li class="crumb">Movie</li>
+       
+    </ol>
+</nav>
+</div>
+<div class="container" >
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
+      <div class="heading">Movies</div>
+    </div>
+  </div>
+   <div class=" row" style="text-align: center;font-size: large;" *ngIf="errMsg !=undefined" ><img src="assets/vector-cute-sorry-smiley-illustration.jpg" style="height:150px;width: 100px;float: none;"><br>{{errMsg}}</div>
+    <div class="row" *ngFor="let movie of movie " >
+    <div class="col-lg-12 col-md-12">
+      <div class="body" style="word-wrap: break-word;"><p>Movie Name:       <strong>{{movie.movieName}}</strong><br>
+      Language  :   <strong>{{movie.language}}</strong><br>
+      Director  :   <strong>{{movie.director}}</strong><br>
+      Genre  :   <strong>{{movie.genre}}</strong>
+      <button class="btn btn-success" style="height: 1cm;float:right" (click)="getTheater(movie)">Select</button>
+    </p></div> 
+    </div>
+     
+  </div>
+ 
+  </div>
